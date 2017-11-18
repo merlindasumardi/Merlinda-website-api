@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 
 var AboutMeSchema = new mongoose.Schema(
     {
+        title: String,
+        subtitle: String,
         fullname: String,
         email: String,
         phone: Number,
@@ -9,7 +11,8 @@ var AboutMeSchema = new mongoose.Schema(
         birthDate: Date,
         website: String,
         address: String,
-        bio: String
+        bio: String,
+        photo: String
 
     });
 
