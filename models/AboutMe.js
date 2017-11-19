@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var DateOnly = require('mongoose-dateonly')(mongoose);
 
 var AboutMeSchema = new mongoose.Schema(
     {
@@ -8,7 +9,7 @@ var AboutMeSchema = new mongoose.Schema(
         email: String,
         phone: Number,
         birthPlace: String,
-        birthDate: Date,
+        birthDate: DateOnly,
         website: String,
         address: String,
         bio: String,

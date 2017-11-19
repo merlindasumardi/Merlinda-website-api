@@ -13,9 +13,9 @@ router.get('/', function(req, res, next){
 
 //fungsi POST
 router.post('/', function(req, res, next){
-    Education.create(req.body, function(err, post){
+    Education.create(req.body, function(err, education){
         if(err) return next(err);
-        res.json(post);
+        res.json(education);
     });
 });
 
@@ -32,18 +32,20 @@ router.get('/:id', function(req,res, next)
 
 router.put('/:id', function(req, res, next)
 {
-    Education.findByIdAndUpdate(req.params.id, req.body, function(err,post){
+    Education.findByIdAndUpdate(req.params.id,req.body, function(err){
         if(err) return next(err);
-        res.json(post);
+        //console.log(post);
+        res.json({"message": "Berhasil Update"});
     });
 });
 
 //fungsi Delete /education/id (delete berdasatkan id)
 router.delete('/:id', function(req, res, next)
 {
-    Education.findByIdAndRemove(req.params.id, req.body, function(err,post){
+    //console.log(req.params.id);
+    Education.findByIdAndRemove({_id: req.params.id}, function(err){
         if(err) return next(err);
-        res.json(post);
+        res.json({"message": "Berhasil Delete"});
     });
 });
 
