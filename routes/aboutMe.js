@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var DateOnly = require('mongoose-dateonly')(mongoose);
 var router = express.Router();
 var aboutMe = require('../models/aboutMe.js');
 
@@ -13,25 +14,29 @@ router.get('/', function(req,res,next){
 
 //fungsi add
 router.post('/', function(req,res, next){
-    aboutMe.create(req.body, function(err,post){
+
+    req.body.birthDate = new DateOnly(req.body.birthDate);
+    req.body.birthDate.month = req.body.birthDate.month+1;
+    console.log(req.body.birthDate);
+    aboutMe.create(req.body, function(err,aboutMe){
         if(err) return next(err);
-        res.json(post);
+        res.json(aboutMe);
     });
 });
 
 //fungsi put
 router.put('/:id', function(req,res,next){
- aboutMe.findByIdAndUpdate(req.params.id, function(err,post){
+ aboutMe.findByIdAndUpdate(req.params.id, req.body, function(err){
    if(err) return next(err);
-   res.json(post)
+     res.json({"message": "Berhasil Update"});
  });
 });
 
 //fungsi delete
 router.delete('/:id', function(req,res,next){
-   aboutMe.findByIdAndRemove(req.params.id, function(err,post){
+   aboutMe.findByIdAndRemove(req.params.id, function(err){
        if(err) return next(err);
-       res.json(post);
+       res.json({"message": "Berhasil Delete"});
    });
 });
 
