@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c22bf849-645c-434f-924c-fcf7590c5563" name="Default" comment="add about me and work">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/aboutMe.js" afterPath="$PROJECT_DIR$/routes/aboutMe.js" />
-    </list>
+    <list default="true" id="c22bf849-645c-434f-924c-fcf7590c5563" name="Default" comment="add about me and work" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -261,7 +259,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32446000" />
+    <option name="totallyTimeSpent" value="33083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
