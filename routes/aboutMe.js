@@ -18,9 +18,9 @@ router.post('/', function(req,res, next){
     req.body.birthDate = new DateOnly(req.body.birthDate);
     req.body.birthDate.month = req.body.birthDate.month+1;
     console.log(req.body.birthDate);
-    aboutMe.create(req.body, function(err,post){
+    aboutMe.create(req.body, function(err,aboutMe){
         if(err) return next(err);
-        res.json(post);
+        res.json(aboutMe);
     });
 });
 
