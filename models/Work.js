@@ -1,11 +1,12 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+require('moment');
 
 var WorkSchema = new mongoose.Schema(
     {
         companyName : String,
         position : String,
-        startDate : Date,
-        endDate : Date,
+        startDate : 'Moment',
+        endDate :'Moment',
         description : String
 
     });
