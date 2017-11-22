@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-require('mongoose-moment')(mongoose);
+var mongoose = require('mongoose');
+//require('mongoose-moment')(mongoose);
 
 var AboutMeSchema = new mongoose.Schema(
     {
@@ -9,7 +9,7 @@ var AboutMeSchema = new mongoose.Schema(
         email: String,
         phone: Number,
         birthPlace: String,
-        birthDate:'Moment',
+        birthDate:Date,
         website: String,
         address: String,
         bio: String,

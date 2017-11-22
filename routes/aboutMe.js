@@ -1,8 +1,8 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var moment = require('moment');
-var router = express.Router();
-var aboutMe = require('../models/aboutMe.js');
+const express = require('express');
+const mongoose = require('mongoose');
+//const moment = require('moment');
+const router = express.Router();
+const aboutMe = require('../models/aboutMe.js');
 
 // fungsi get
 router.get('/', function(req,res,next){
@@ -15,8 +15,8 @@ router.get('/', function(req,res,next){
 //fungsi add
 router.post('/', function(req,res, next){
 
-    req.body.birthDate = moment(req.body.birthDate).format('DD/MM/YYYY');
-    console.log(req.body.birthDate);
+    // req.body.birthDate = moment(req.body.birthDate).format('DD/MM/YYYY');
+    // console.log(req.body.birthDate);
 
     aboutMe.create(req.body, function(err,aboutMe){
         if(err) return next(err);
@@ -26,8 +26,8 @@ router.post('/', function(req,res, next){
 
 //fungsi put
 router.put('/:id', function(req,res,next){
-    req.body.birthDate = moment(req.body.birthDate).format('dd/mm/yyyy');
-    console.log(req.body.birthDate);
+    // req.body.birthDate = moment(req.body.birthDate).format('dd/mm/yyyy');
+    // console.log(req.body.birthDate);
 
  aboutMe.findByIdAndUpdate(req.params.id, req.body, function(err){
    if(err) return next(err);

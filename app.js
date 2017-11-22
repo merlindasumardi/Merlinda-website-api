@@ -1,19 +1,20 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const PORT = process.env.PORT || 3000;
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var aboutMe = require('./routes/aboutMe');
-var education = require('./routes/education');
-var work = require('./routes/work');
-var skill = require('./routes/skill');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const aboutMe = require('./routes/aboutMe');
+const education = require('./routes/education');
+const work = require('./routes/work');
+const skill = require('./routes/skill');
 
-var app = express();
+const app = express();
 
 //load mongoose
 mongoose.Promise = global.Promise;
@@ -60,5 +61,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.listen(PORT);
+
+console.log('merlinda api RESTful API server start on: ' + PORT);
 
 module.exports = app;
