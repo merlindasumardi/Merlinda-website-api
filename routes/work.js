@@ -42,7 +42,9 @@ router.put('/:id', function (req,res,next) {
 
 //fungsi Delete
 router.delete('/:id', function(req,res,next){
+    
  work.findByIdAndRemove(req.params.id, function(err,post){
+    
      if(err) return next(err);
      res.json(post);
  });

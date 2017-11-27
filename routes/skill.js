@@ -1,7 +1,7 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var router = express.Router();
-var Skill = require('../models/Skill.js');
+const express = require('express');
+const mongoose = require('mongoose');
+const router = express.Router();
+const Skill = require('../models/Skill.js');
 
 //fungsi get
 router.get('/', function(req,res, next){
@@ -22,7 +22,8 @@ router.post('/', function (req,res,next) {
 
 //fungsi put
 router.put('/:id', function (req,res,next) {
-    Skill.findIdAndUpdate(req.param.id, req.body, function(err)
+    //console.log(req.params.id);
+    Skill.findByIdAndUpdate(req.params.id, req.body, function(err)
     {
         if(err) return next(err);
         res.json({"message": "berhasil update"});
@@ -31,9 +32,11 @@ router.put('/:id', function (req,res,next) {
 
 //fungsi delete
 router.delete('/:id', function(req,res,next){
-    Skill.findIdAndRemove(req.param.id, function(err){
+   //console.log(req.params.id);
+    Skill.findByIdAndRemove(req.params.id, function(err){
+        
        if(err) return next(err);
-       res.json({"message" : "Berhasil Delete"})
+       res.json({"message" : "Berhasil Delete"});
     });
 });
 
