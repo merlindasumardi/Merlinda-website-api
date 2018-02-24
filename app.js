@@ -20,7 +20,7 @@ const app = express();
 mongoose.Promise = global.Promise;
 
 //connect to MongoDB
-mongoose.connect('mongodb://localhost/merlindaWebsite')
+mongoose.connect('mongodb://localhost/merlindaWebsite', {useMongoClient: true})
     .then(()=> console.log('berhasil connect ke MongoDB'))
 .catch((err)=> console.log(err));
 
@@ -41,7 +41,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 app.use('/', index);
 app.use('/users', users);
