@@ -1,3 +1,5 @@
+require('dotenv').load();
+
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -6,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
+const mongodb = require('mongodb');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -19,15 +22,11 @@ const app = express();
 //load mongoose
 mongoose.Promise = global.Promise;
 
-//connect to MongoDB
-mongoose.connect('mongodb://localhost/merlindaWebsite', {useMongoClient: true})
+//connect to MongoDB 
+mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true})
     .then(()=> console.log('berhasil connect ke MongoDB'))
 .catch((err)=> console.log(err));
 
-
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
