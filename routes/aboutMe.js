@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 //const moment = require('moment');
 const router = express.Router();
-const aboutMe = require('../models/aboutMe.js');
+const aboutMe = require('../models/AboutMe.js');
 
 // fungsi get
 router.get('/', function(req,res,next){
